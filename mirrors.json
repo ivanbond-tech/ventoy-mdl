@@ -1,0 +1,99 @@
+{
+    "Arch": {
+        "mirror": "https://mirrors.edge.kernel.org/archlinux/iso/latest/archlinux-x86_64.iso",
+        "filename-regex": null,
+        "parts": [],
+        "parts-values": []
+    },
+    "Alpine": {
+        "mirror": "https://mirrors.edge.kernel.org/alpine/latest-stable/releases/x86_64/",
+        "filename-regex": "alpine-standard.*-x86_64\\.iso",
+        "parts": [],
+        "parts-values": []
+    },
+    "Gentoo": {
+        "mirror": "https://mirrors.edge.kernel.org/gentoo/releases/amd64/autobuilds/current-install-amd64-minimal/",
+        "filename-regex": "install-amd64-minimal.*\\.iso",
+        "parts": [],
+        "parts-values": []
+    },
+    "Ubuntu": {
+        "mirror": "https://mirrors.edge.kernel.org/ubuntu-releases/",
+        "filename-regex": "-live-server-amd64\\.iso",
+        "parts": ["*"],
+        "parts-values": [-2]
+    },
+    "Debian": {
+        "mirror": "https://cdimage.debian.org/debian-cd/current/amd64/iso-dvd/",
+        "filename-regex": "-amd64-DVD.*\\.iso",
+        "parts": [],
+        "parts-values": []
+    },
+    "OpenBSD": {
+        "mirror": "https://cdn.openbsd.org/pub/OpenBSD/",
+        "filename-regex": "install.*\\.img",
+        "parts": ["*", "amd64"],
+        "parts-values": [-2, null]
+    },
+    "FreeBSD": {
+        "mirror": "https://mirrors.mit.edu/FreeBSD/releases/ISO-IMAGES/",
+        "filename-regex": "-RELEASE-amd64-dvd1\\.iso",
+        "parts": ["*"],
+        "parts-values": []
+    },
+    "Rocky": {
+        "mirror": "https://download.rockylinux.org/pub/rocky/",
+        "filename-regex": "latest-x86_64-minimal\\.iso",
+        "parts": ["*", "isos", "x86_64"],
+        "parts-values": [null, null, null]
+    },
+    "Fedora": {
+        "mirror": "https://mirrors.edge.kernel.org/fedora/releases/",
+        "filename-regex": "-dvd-x86_64.*\\.iso",
+        "parts": ["*", "Server", "x86_64", "iso"],
+        "parts-values": [null, null, null, null]
+    },
+    "OpenSUSE": {
+        "mirror": "https://mirrors.edge.kernel.org/opensuse/distribution/openSUSE-stable/iso/",
+        "filename-regex": "-DVD-x86_64-Current\\.iso",
+        "parts": [],
+        "parts-values": []
+    },
+    "LinuxMint": {
+        "mirror": "https://mirrors.edge.kernel.org/linuxmint/stable/",
+        "filename-regex": "-cinnamon-64bit\\.iso",
+        "parts": ["*"],
+        "parts-values": []
+    },
+    "LibreBoot": {
+        "mirror": "https://mirrors.mit.edu/libreboot/stable/",
+        "filename-regex": "_src\\.tar\\.xz",
+        "parts": ["*"],
+        "parts-values": []
+    },
+    "ParrotOS": {
+        "mirror": "https://mirrors.mit.edu/parrot/iso/",
+        "filename-regex": "-security-.*_amd64\\.iso",
+        "parts": ["*"],
+        "parts-values": []
+    },
+    "Qubes": {
+        "mirror": "https://mirrors.edge.kernel.org/qubes/iso/",
+        "filename-regex": "Qubes-R.*-x86_64.*\\.iso",
+        "parts": [],
+        "parts-values": []
+    },
+    "Tails": {
+        "mirror": "https://mirrors.edge.kernel.org/tails/stable/",
+        "filename-regex": "tails-amd64.*\\.iso",
+        "parts": ["tails-amd64-*"],
+        "parts-values": [0]
+    },
+    "Kali": {
+        "mirror": "https://archive.kali.org/kali-images/current/",
+        "filename-regex": "-live-amd64\\.iso",
+        "parts": [],
+        "parts-values": []
+    }
+}
+

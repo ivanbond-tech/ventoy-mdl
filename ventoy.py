@@ -1,9 +1,7 @@
-import os,re,sys
+from constants import *
+import re,sys
 import requests
 import json
-
-from colors import *
-from constants import *
 
 def load_mirrors(path='./mirrors.json'):
     if os.path.exists(path):

@@ -1,0 +1,45 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then
+    echo "usage: $0 /dev/<ventoy-mount-location>";
+    exit 1;
+fi
+
+DEVICE_PATH="$1";
+MOUNT_POINT="/mnt/ventoy";
+
+# check if ventoy USB information has already been saved
+if [ -z "$VENTOY_VENDOR_ID" ] || [ -z "$VENTOY_PRODUCT_ID" ]; then
+    # extract the vendor and product ID from the lsusb output
+    VENDOR_ID=$(udevadm info --query=property --name=$DEVICE_PATH | grep ID_VENDOR_ID | cut -d'=' -f2);
+    PRODUCT_ID=$(udevadm info --query=property --name=$DEVICE_PATH | grep ID_MODEL_ID | cut -d'=' -f2);
+    # save to environment variables
+    export VENTOY_VENDOR_ID=0x$VENDOR_ID;
+    export VENTOY_PRODUCT_ID=0x$PRODUCT_ID;
+    # export to environment
+    echo export VENTOY_VENDOR_ID=$VENTOY_VENDOR_ID >> ~/.bash_env;
+    echo export VENTOY_PRODUCT_ID=$VENTOY_PRODUCT_ID >> ~/.bash_env;
+else
+    echo "VENTOY: vendorId=$VENTOY_VENDOR_ID,productId=$VENTOY_PRODUCT_ID";
+fi
+
+# ensure mount point exists
+if [ ! -d "$MOUNT_POINT" ]; then
+    echo "creating $MOUNT_POINT directory...";
+    sudo mkdir -p "$MOUNT_POINT";
+fi
+
+# mount DEVICE_PATH to MOUNT_POINT
+if mountpoint -q "$MOUNT_POINT"; then
+    exit 0;
+else
+    sudo mount "$DEVICE_PATH" "$MOUNT_POINT"; 
+    # check for mount failure
+    if [ ! $? -eq 0 ]; then
+        echo "failed to mount $DEVICE_PATH to $MOUNT_POINT";
+        exit 1;
+    fi
+fi
+
+#echo "please run: source ~/.bash_env to load environment variables";
+source ~/.bashrc
